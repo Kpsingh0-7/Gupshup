@@ -55,7 +55,7 @@ export default function createRouter(io) {
   router.put('/edit', authenticateToken, updateTemplate);
   
   router.get('/gettemplates', authenticateToken, getTemplate);
-  router.get('/contacts', authenticateToken, returnContacts); // if returnContacts needs io, change to returnContacts(io)
+  router.get('/contacts', authenticateToken, returnContacts); 
   router.get('/templates', authenticateToken, returnTemplates);
   router.get('/conversations', authenticateToken, returnConversations);
   router.get('/messages',  returnMessages);

@@ -84,7 +84,7 @@ export const sendTemplates = async (req, res) => {
     // Step 4: Log the sent message
     await pool.execute(
      `INSERT INTO messages (conversation_id, sender_type, sender_id, message_type, element_name, template_data, status, external_message_id, sent_at) VALUES (?, 'shop', ?, 'template', ?, ?, 'sent', ?, NOW())`,
-[null, shop_id, element_name, JSON.stringify({ parameters }), templateMessageId]
+[null, shop_id, element_name, JSON.stringify({ templateData }), templateMessageId]
 );
 
     return res.status(200).json({
