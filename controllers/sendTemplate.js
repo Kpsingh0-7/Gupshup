@@ -132,8 +132,8 @@ export const sendTemplate = async (req, res) => {
           conversation_id,
           shop_id,
           element_name,
-          JSON.stringify({ parameters }),
-          //JSON.stringify(templateData),
+          //JSON.stringify({ parameters }),
+          JSON.stringify(templateData),
           templateMessageId
         ]
       );
