@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
 });
 
 // === Start Unified Server ===
-const PORT = 3000;
+const PORT = 5000;
 server.listen(PORT, () => {
   console.log(`Server (API + Socket.IO) running on http://localhost:${PORT}`);
 });
