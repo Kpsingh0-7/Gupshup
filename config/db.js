@@ -23,7 +23,7 @@ export const pool = mysql.createPool({
   user: 'kpremote',
   port: '3306',
   password: 'z*4QO2HFfEsR4YM%',
-  database: 'marketing',
+  database: 'gupshup',
   timezone: 'Z' // "Z" means UTC
 });
 
