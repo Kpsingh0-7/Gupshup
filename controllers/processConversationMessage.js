@@ -31,7 +31,7 @@ export const processConversationMessage = async (req, res) => {
 
     // 3. Get mobile number from wp_customer_marketing
     const [custRows] = await pool.execute(
-      `SELECT mobile_no FROM wp_customer_marketing WHERE customer_id = ?`,
+      `SELECT mobile_no, user_country_code FROM wp_customer_marketing WHERE customer_id = ?`,
       [customer_id]
     );
 
@@ -39,7 +39,10 @@ export const processConversationMessage = async (req, res) => {
       return res.status(404).json({ error: "Customer not found" });
     }
 
-    const phoneNumber = custRows[0].mobile_no;
+    const { mobile_no, user_country_code } = custRows[0];
+
+    // Combine country code and mobile number
+    const phoneNumber = `${user_country_code}${mobile_no}`; // e.g., "+91" + "9876543210"
 
     // 4. Construct payload
     let payload = null;
